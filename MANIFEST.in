@@ -1,0 +1,18 @@
+include MANIFEST.in
+include requirements.txt
+include *.json
+include *.md
+include *.py
+include *.txt
+recursive-include furniture *.css
+recursive-include furniture *.csv
+recursive-include furniture *.html
+recursive-include furniture *.ico
+recursive-include furniture *.js
+recursive-include furniture *.json
+recursive-include furniture *.md
+recursive-include furniture *.png
+recursive-include furniture *.py
+recursive-include furniture *.svg
+recursive-include furniture *.txt
+recursive-exclude furniture *.pyc
