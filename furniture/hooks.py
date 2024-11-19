@@ -1,4 +1,6 @@
 from . import __version__ as app_version
+from furniture.custom_item import Item
+from furniture.custom_buying import BuyingController
 
 app_name = "furniture"
 app_title = "Furniture"
@@ -9,6 +11,30 @@ app_license = "MIT"
 
 # Includes in <head>
 # ------------------
+
+fixtures = [
+    # export only those records that match the filters from the Role table
+    {"dt": "Custom Field", "or_filters": [
+		["dt", "=", "Opportunity Item"],
+		["dt", "=", "Opportunity"],
+		["dt", "=", "Item"],
+		["dt", "=", "Project"],
+		["dt", "=", "Quotation Item"],
+		["dt", "=", "Sales Order Item"],
+		["dt", "=", "Sales Order"],
+		["dt", "=", "Company"]
+	]},
+
+	{"dt": "Property Setter", "or_filters": [
+		["doc_type", "=", "Opportunity Item"],
+		["doc_type", "=", "Quotation Item"],
+		["doc_type", "=", "Sales Order Item"],
+	]},
+	{"dt": "DocType Link", "or_filters": [
+		["parent", "=", "Opportunity"],
+		["parent", "=", "Sales Order"],
+	]}
+]
 
 # include js, css files in header of desk.html
 # app_include_css = "/assets/furniture/css/furniture.css"
@@ -29,7 +55,13 @@ app_license = "MIT"
 # page_js = {"page" : "public/js/file.js"}
 
 # include js in doctype views
-# doctype_js = {"doctype" : "public/js/doctype.js"}
+doctype_js = {
+    "Opportunity" : "public/js/doctype/opportunity.js",
+	"Sales Order": "public/js/doctype/sales_order.js",
+	"Quotation": "public/js/doctype/quotation.js",
+	"Project" : "public/js/doctype/project.js",
+	"Item": "public/js/doctype/item.js"
+}
 # doctype_list_js = {"doctype" : "public/js/doctype_list.js"}
 # doctype_tree_js = {"doctype" : "public/js/doctype_tree.js"}
 # doctype_calendar_js = {"doctype" : "public/js/doctype_calendar.js"}
@@ -102,13 +134,21 @@ app_license = "MIT"
 # ---------------
 # Hook on document methods and events
 
-# doc_events = {
-#	"*": {
-#		"on_update": "method",
-#		"on_cancel": "method",
-#		"on_trash": "method"
-#	}
-# }
+doc_events = {
+	"Opportunity": {
+		"validate": "furniture.www.api.validate",
+	},
+	"Quotation": {
+		"validate": "furniture.www.api.validate",
+	},
+	"Sales Order": {
+		"validate": "furniture.www.api.validate",
+		"on_update_after_submit": "furniture.www.api.on_update_after_submit"
+	},
+	"Project": {
+		"validate": "furniture.www.api.validate",
+	},
+}
 
 # Scheduled Tasks
 # ---------------
@@ -139,9 +179,9 @@ app_license = "MIT"
 # Overriding Methods
 # ------------------------------
 #
-# override_whitelisted_methods = {
-#	"frappe.desk.doctype.event.event.get_events": "furniture.event.get_events"
-# }
+override_whitelisted_methods = {
+	"erpnext.controllers.accounts_controller.update_child_qty_rate": "furniture.custom_buying.update_child_qty_rate"
+}
 #
 # each overriding function accepts a `data` argument;
 # generated from the base implementation of the doctype dashboard,
