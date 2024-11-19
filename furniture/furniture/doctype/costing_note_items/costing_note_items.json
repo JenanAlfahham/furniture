@@ -1,0 +1,311 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-04-05 04:33:34.568787",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "is_group",
+  "series_number",
+  "group_item",
+  "item",
+  "item_description",
+  "item_group",
+  "picture",
+  "colors_and_texture_section",
+  "body",
+  "skirt",
+  "modesty",
+  "metal",
+  "column_break_nzbg",
+  "color_gfim",
+  "skirt_color",
+  "modesty_color",
+  "metal_color",
+  "column_break_tcbi",
+  "body_edge",
+  "skirt_edge",
+  "note",
+  "dimensions_section",
+  "width",
+  "column_break_fbca",
+  "hight",
+  "column_break_fcop",
+  "depth",
+  "section_break_yuse",
+  "eng_description",
+  "column_break_ftjo",
+  "arabic_description",
+  "quantity_and_rate_section",
+  "uom",
+  "qty",
+  "cost",
+  "total_cost",
+  "default_profit_margin",
+  "target_selling_price",
+  "boq",
+  "boq_link"
+ ],
+ "fields": [
+  {
+   "columns": 1,
+   "default": "0",
+   "fieldname": "is_group",
+   "fieldtype": "Check",
+   "in_list_view": 1,
+   "label": "Is Group"
+  },
+  {
+   "columns": 1,
+   "fieldname": "series_number",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Series",
+   "read_only": 1
+  },
+  {
+   "columns": 1,
+   "fieldname": "item_group",
+   "fieldtype": "Link",
+   "label": "Item Group",
+   "options": "Item Group",
+   "reqd": 1
+  },
+  {
+  "fieldname": "group_item",
+  "fieldtype": "Data",
+  "in_list_view": 1,
+  "label": "Group Item",
+  "columns": 1
+  },
+  {
+   "columns": 1,
+   "fieldname": "item",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Item",
+   "options": "Item"
+  },
+  {
+  "columns": 1,
+  "fieldname": "item_description",
+  "fieldtype": "Data",
+  "in_list_view": 1,
+  "label": "Item Description"
+  },
+  {
+   "fieldname": "uom",
+   "fieldtype": "Link",
+   "label": "UOM",
+   "options": "UOM"
+  },
+  {
+   "columns": 1,
+   "fieldname": "qty",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "QTY"
+  },
+  {
+  "columns": 1,
+  "fieldname": "boq",
+  "fieldtype": "Button",
+  "in_list_view": 1,
+  "label": "BOQ"
+   },
+   {
+  "fieldname": "boq_link",
+  "fieldtype": "Link",
+  "label": "BOQ Link",
+  "options": "BOQ"
+   },
+  {
+  "columns": 1,
+  "fieldname": "cost",
+  "fieldtype": "Currency",
+  "label": "Cost"
+   },
+  {
+   "columns": 1,
+   "fieldname": "total_cost",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Total Cost",
+   "read_only": 1
+  },
+  {
+   "columns": 1,
+   "fieldname": "default_profit_margin",
+   "fieldtype": "Percent",
+   "in_list_view": 1,
+   "label": "Default Profit Margin"
+  },
+  {
+   "columns": 1,
+   "fieldname": "target_selling_price",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Target selling price"
+  },
+  {
+   "fieldname": "arabic_description",
+   "fieldtype": "Text Editor",
+   "label": "Arabic Description"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "section_break_yuse",
+   "fieldtype": "Section Break",
+   "label": "Description"
+  },
+  {
+   "fieldname": "column_break_ftjo",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "body",
+   "fieldtype": "Link",
+   "label": "Body",
+   "options": "Color"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "colors_and_texture_section",
+   "fieldtype": "Section Break",
+   "label": "Colors and Texture"
+  },
+  {
+   "fieldname": "skirt",
+   "fieldtype": "Link",
+   "label": "Skirt",
+   "options": "Color"
+  },
+  {
+   "fieldname": "column_break_tcbi",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "modesty",
+   "fieldtype": "Link",
+   "label": "Modesty",
+   "options": "Color"
+  },
+  {
+   "fieldname": "metal",
+   "fieldtype": "Link",
+   "label": "Metal",
+   "options": "Color"
+  },
+  {
+   "fieldname": "picture",
+   "fieldtype": "Attach Image",
+   "label": "Picture"
+  },
+  {
+   "fieldname": "eng_description",
+   "fieldtype": "Text Editor",
+   "label": "Description"
+  },
+  {
+   "fieldname": "column_break_nzbg",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "body.color",
+   "fieldname": "color_gfim",
+   "fieldtype": "Color",
+   "label": "Body Color",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "skirt.color",
+   "fieldname": "skirt_color",
+   "fieldtype": "Color",
+   "label": "Skirt Color",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "modesty.color",
+   "fieldname": "modesty_color",
+   "fieldtype": "Color",
+   "label": "Modesty Color",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "metal.color",
+   "fieldname": "metal_color",
+   "fieldtype": "Color",
+   "label": "Metal Color",
+   "read_only": 1
+  },
+  {
+   "fieldname": "body_edge",
+   "fieldtype": "Link",
+   "label": " Body Edge",
+   "options": "Edge"
+  },
+  {
+   "fieldname": "skirt_edge",
+   "fieldtype": "Link",
+   "label": "Skirt Edge",
+   "options": "Edge"
+  },
+  {
+   "fieldname": "note",
+   "fieldtype": "Small Text",
+   "label": "Note"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "dimensions_section",
+   "fieldtype": "Section Break",
+   "label": "Dimensions"
+  },
+  {
+   "fieldname": "width",
+   "fieldtype": "Float",
+   "label": "Width",
+   "precision": "1"
+  },
+  {
+   "fieldname": "column_break_fbca",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "hight",
+   "fieldtype": "Float",
+   "label": "Hight",
+   "precision": "1"
+  },
+  {
+   "fieldname": "column_break_fcop",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "depth",
+   "fieldtype": "Float",
+   "label": "Depth",
+   "precision": "1"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "quantity_and_rate_section",
+   "fieldtype": "Section Break",
+   "label": "Quantity and Rate"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2024-04-05 04:33:34.568787",
+ "modified_by": "Administrator",
+ "module": "Furniture",
+ "name": "Costing Note Items",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
